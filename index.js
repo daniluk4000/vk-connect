@@ -23,8 +23,8 @@
 
     window.addEventListener('VKWebAppEvent', function() {
       var args = Array.prototype.slice.call(arguments);
-
-      subscribers.forEach(function(fn) {
+      var _subscribers = subscribers.slice();
+      _subscribers.forEach(function(fn) {
         fn.apply(null, args);
       });
     });
